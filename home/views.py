@@ -4,7 +4,7 @@ from home.models import Addblog
 from django.contrib import messages 
 from django.contrib.auth.models import User 
 from django.contrib.auth  import authenticate,  login, logout
-from blog.models import Post
+from blog.models import Post, CoepPost
 
 def home(request): 
     return render(request, "home/home.html")
@@ -27,14 +27,21 @@ def search(request):
     query=request.GET['query']
     if len(query)>78:
         allPosts=Post.objects.none()
+        coepPosts=CoepPost.objects.none()
     else:
         allPostsTitle= Post.objects.filter(title__icontains=query)
+        # coepPostsTitle= CoepPost.objects.filter(coeptitle__icontains=query)
         allPostsAuthor= Post.objects.filter(author__icontains=query)
+        # coepPostsAuthor= CoepPost.objects.filter(coepauthor__icontains=query)
         allPostsContent =Post.objects.filter(content__icontains=query)
+        # coepPostsContent =CoepPost.objects.filter(coepcontent__icontains=query)
         allPosts=  allPostsTitle.union(allPostsContent, allPostsAuthor)
+        # coepPosts=  coepPostsTitle.union(allPostsContent, allPostsAuthor)
     if allPosts.count()==0:
         messages.warning(request, "No search results found. Please refine your query.")
-    params={'allPosts': allPosts, 'query': query}
+    # if coepPosts.count()==0:
+    #     messages.warning(request, "No search results found. Please refine your query.")
+    params={'allPosts': allPosts,'query': query}
     return render(request, 'home/search.html', params)
 
 def handleSignUp(request):

@@ -1,22 +1,39 @@
 from django.shortcuts import render, HttpResponse, redirect
-from blog.models import Post, BlogComment
-from home.models import Addblog
+from blog.models import Post, BlogComment, CoepPost
+from home.models import Addblog, CoepAddblog
 from django.contrib import messages
 from django.contrib.auth.models import User
 from blog.templatetags import extras
 
+
+
 # Create your views here.
+
 def blogHome(request): 
     allPosts= Post.objects.all()
     alld=Addblog.objects.all()
     context={'allPosts': allPosts,'postn':alld}
 
     return render(request, "blog/blogHome.html", context)
+# change
+def coepblogHome(request): 
+    coepallPosts= CoepPost.objects.all()
+    coepalld=CoepAddblog.objects.all()
+    context={'allPosts': coepallPosts,'postn':coepalld}
+    return render(request, "blog/coepblogHome.html", context)
+
+
+def allblog(request):
+    vallPosts= Post.objects.all()
+    alld=Addblog.objects.all()
+    coepallPosts= CoepPost.objects.all()
+    coepalld=CoepAddblog.objects.all()
+    return render(request,"blog/allblog.html",{'vallPosts': vallPosts,'postn':alld,'allPosts': coepallPosts,'postn':coepalld})
 
 def blogPost(request, slug): 
     post=Post.objects.filter(slug=slug).first()
-    post.views= post.views +1
-    post.save()    
+    # post.views= post.views +1
+    # post.save()    
     comments= BlogComment.objects.filter(post=post, parent=None)
     replies= BlogComment.objects.filter(post=post).exclude(parent=None)
     replyDict={}

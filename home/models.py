@@ -18,4 +18,10 @@ class Addblog(models.Model):
     author=models.CharField(max_length=14)
     slug=models.CharField(max_length=130)
     content=models.TextField()
+class CoepAddblog(models.Model):
+    coepsno= models.AutoField(primary_key=True)
+    coeptitle=models.CharField(max_length=255)
+    coepauthor=models.CharField(max_length=14)
+    coepslug=models.CharField(max_length=130)
+    coepcontent=models.TextField()
 

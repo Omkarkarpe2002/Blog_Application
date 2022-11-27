@@ -13,11 +13,23 @@
       <img src="{% static 'img/coolege_back.jpg' %}" alt="" style="float:right;width: 25rem;
       height: 25rem;padding-bottom: 10rem;"/>
 
-      <h1 class="display-4" >Welcome to <b>VishwaBlog!</b></h1>
-      <p class="lead">Get in touch with everything that's happening at your college..!!</p>
+      <h1 class="display-4" >Welcome to <b>InterCollegeBlog!</b></h1>
+      <p class="lead">Get in touch with the daily activities of TOP COLLEGES...!!</p>
       <hr class="my-4">
-      <p>Get ready to enter into the world of VishwaBlog...!!</p>
-      <a class="btn btn-primary btn-lg" href="/blog" role="button">Go to Blog</a>
+      <p>Select your Preference and enter into the world of INTERBLOG...!!</p>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Please Select Preference
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/blog/allblog">All</a>
+          <a class="dropdown-item" href="/blog">Go to VIT-Blog</a>
+          <a class="dropdown-item" href="/blog/coepblog">Go to COEP-Blog</a>
+        </div>
+      </div>
+      {% comment %} <a class="btn btn-primary btn-lg" href="/blog" role="button">Go to VIT-Blog</a> {% endcomment %}
+      {% comment %} change {% endcomment %}
+      {% comment %} <a class="btn btn-primary btn-lg" href="/blog/coepblog" role="button">Go to COEP-Blog</a> {% endcomment %}
       </div>
     </div>
 

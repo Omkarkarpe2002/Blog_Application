@@ -14,7 +14,7 @@
   <body style="background-color:rgb(230, 223, 213); ">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">VishwaBlog</a>
+        <a class="navbar-brand" href="/">InterBlog</a>
         <button class="navbar-toggler" type="button" data-toggle  ="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,9 +27,9 @@
             <li class="nav-item {% block contactactive %}  {% endblock contactactive %} ">
               <a class="nav-link" href="/contact">Contact</a>
             </li>
-            <li class="nav-item {% block blogactive %}  {% endblock blogactive %} ">
+            {% comment %} <li class="nav-item {% block blogactive %}  {% endblock blogactive %} ">
               <a class="nav-link" href="/blog">Blog</a>
-            </li>
+            </li> {% endcomment %}
             
           </ul>
           <div class="ml-auto form-inline ">
@@ -104,8 +104,8 @@ SignUp
     <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" required>
   </div>
   <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" pattern="^[a-zA-Z0-9]+@vit\.edu$" placeholder="Please enter your College email-id ONLY"  required>
+    <label for="email">Email address</label>     
+    <input type="email" class="form-control" id="email" name="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" placeholder="Please enter your College email-id ONLY"  required>
   </div>
   <div class="form-group">
     <label for="pass1">Choose a password</label>

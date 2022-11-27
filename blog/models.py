@@ -13,10 +13,22 @@ class Post(models.Model):
     views= models.IntegerField(default=0)
     timeStamp=models.DateTimeField(blank=True)
 
+    def __str__(self):
+        return self.title + " by " + self.author
+# change
+class CoepPost(models.Model):
+    coepsno=models.AutoField(primary_key=True)
+    coeptitle=models.CharField(max_length=255)
+    coepauthor=models.CharField(max_length=14)
+    coepcontent=models.TextField()
+    coepslug=models.CharField(max_length=130)
+    coepviews= models.IntegerField(default=0)
+    coeptimeStamp=models.DateTimeField(blank=True)
+
 
 
     def __str__(self):
-        return self.title + " by " + self.author
+        return self.coeptitle + " by " + self.coepauthor
 
 class BlogComment(models.Model):
     sno= models.AutoField(primary_key=True)
